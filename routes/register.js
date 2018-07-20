@@ -3,9 +3,7 @@ module.exports.handleRegistration = (req, res, db, bcrypt) => {
     if (!name || !email || !password) {
         return res.status(400).json('All fields required');
     }
-    const saltRounds = 10;
-    const salt = bcrypt.genSaltSync(saltRounds);
-    const hash = bcrypt.hashSync(password, salt);
+    const hash = bcrypt.hashSync(password);
     db.transaction(trx => {
         trx.insert({
             hash: hash,
