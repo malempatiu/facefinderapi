@@ -2,7 +2,7 @@ const express    = require('express'),
       app        = express(),
       bodyParser = require('body-parser'),
       cors       = require('cors'),
-      bcrypt     = require('bcrypt'),
+      bcrypt = require('bcrypt-nodejs');
       knex       = require('knex');
 
 const users      = require('./routes/users');   
