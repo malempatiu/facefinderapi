@@ -2,7 +2,7 @@ const express    = require('express'),
       app        = express(),
       bodyParser = require('body-parser'),
       cors       = require('cors'),
-      bcrypt = require('bcrypt-nodejs');
+      bcrypt     = require('bcrypt-nodejs');
       knex       = require('knex');
 
 const users      = require('./routes/users');   
@@ -30,6 +30,6 @@ app.post('/register', (req, res) => {register.handleRegistration(req, res, db, b
 app.put('/image', (req, res) => {imageCount.handleImageEntriesUpdate(req, res, db)});
 app.post('/imageurl', (req, res) => {imageUrl.handleImageUrl(req, res)});
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('FF server has started');
 });
