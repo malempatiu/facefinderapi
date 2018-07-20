@@ -14,10 +14,8 @@ const imageUrl   = require('./routes/imageurl');
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'postgresql-flexible-39118',
-        user: 'postgres',
-        password: '',
-        database: 'face-finder-api'
+        host: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
